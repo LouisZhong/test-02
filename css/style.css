@@ -1,0 +1,258 @@
+/* 透過fontawesome CDN去套用 */
+
+/* Grid網格 */
+
+.row:after{
+    content:"";
+    clear:both;
+    display:block; /*after是行內元素 claer不會發生作用 所以要透過display變成區塊*/
+}
+[class^='col-']{
+    float:left;
+    padding-left:15px;
+    padding-right:15px;
+}  /* []是屬性選擇器 可以選擇所有 col-開頭的東西 */
+
+.col-md-3{
+    width:calc(100%*3/12);
+}
+
+.col-md-4{
+    width:calc(100%*4/12);
+}
+
+.col-md-6{
+    width:calc(100%*6/12);
+}
+
+/* general 統一設定的東西 例如文字顏色*/
+h1,h2,h3,h4,h5,h6,p,a,span{
+    color:333;
+}
+
+/* primary: orange */
+
+/* navbar */
+body{
+    padding-top: 50px;  /* 透過body擠下被nav吃掉的空間 */
+}
+
+.navbar{
+    width:100%;
+    height:50px;
+    background:orange;
+    position:fixed; /* 固定navbar在頁首*/ 
+    left:0;
+    top:0;
+    z-index: 200;
+}
+
+.navbar-header{
+    float:left;
+}
+
+.navbar-list{
+    float:right;
+    list-style:none;
+    padding:0;  /*設定0才不會影響排版 */
+    margin:0;
+}
+
+.navbar-brand,
+.navbar-list>li{
+    float:left;
+    height:50px;
+    margin:0 15px; /*因為已經置中 所以上下設成0 左右設定數值 */
+    line-height:50px;  /* 垂直置中的方式 就是把高度設定成跟區塊高度一樣*/
+}
+
+
+.navbar-brand,.navbar-list>li>a{
+    color:white;
+    text-decoration: none;
+}
+
+/* header */
+header{
+    background: #eee;
+    padding-top:50px;
+    padding-bottom: 50px;
+    /* padding: 50px 0 一樣寫法;*/
+}
+
+.header-img{
+    width:220px;  /*width或height設定其一就好 會等比例縮放 不然會失真 */
+    border-radius:50%;  /* 無論width怎麼改 都會是圓形*/
+    margin:0 auto;  /* 設定完這兩行才會置中 */
+    display:block; 
+}
+
+/* introSection */
+#introSection{
+    padding:50px 0;
+    text-align:center;
+}
+
+.icon{
+    color:orange;
+}
+
+/* imageSection */
+
+#imageSection{
+    width:100%;
+}
+
+[id^='photoImg']{
+    height:220px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter:grayscale(100%); /* 飽和度 0%是黑白*/
+    transition:all .5s ease;
+}
+
+[id^='photoImg']>h4 {
+    color: white;
+    text-align: center;
+    line-height: 220px; /*垂直置中就是把文字高度設成跟行高一樣 且文字有預設margin 所以要改0 */
+    margin: 0;
+    font-size: 6px;
+    opacity: 0;
+    transition: all .5s ease;
+}
+
+[id^='photoImg']:hover{
+    filter:grayscale(0%);
+}
+
+[id^='photoImg']:hover>h4{
+    font-size:24px;
+    opacity:1;
+}
+
+
+#photoImg1 {
+    background-image: url('https://unsplash.it/220/220?image=991');
+}
+
+#photoImg2 {
+    background-image: url('https://unsplash.it/220/220?image=992');
+}
+
+#photoImg3 {
+    background-image: url('https://unsplash.it/220/220?image=993');
+}
+
+#photoImg4 {
+    background-image: url('https://unsplash.it/220/220?image=994');
+}
+
+#photoImg5 {
+    background-image: url('https://unsplash.it/220/220?image=995');
+}
+
+#photoImg6 {
+    background-image: url('https://unsplash.it/220/220?image=996');
+}
+
+#photoImg7 {
+    background-image: url('https://unsplash.it/220/220?image=997');
+}
+
+#photoImg8 {
+    background-image: url('https://unsplash.it/220/220?image=998');
+}
+
+#phtoImg9 {
+    background-image: url('https://unsplash.it/220/220?image=999');
+}
+/* footer */
+footer{
+    background: orange;
+    padding:80px 0;
+    text-align:center;
+}
+
+footer>h1{
+   color:white;   
+}
+
+/* chat-component */
+.chat-component{
+    position:static;
+    position:fixed;
+    bottom:30px;
+    right:30px;
+}
+
+.toogle-chatroom{
+    width:50px;
+    height:50px;
+    border-radius:10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.5);
+    background: white;
+    color:orange;
+    border-bottom-style: none;
+    position:relative;
+    z-index:200;
+}
+
+.chatroom{
+    position: absolute;
+    width:200px;
+    height:300px;
+    background: white;
+    bottom:50px;
+    right:0; /*因為他以左邊做定位 所以設右邊是0才會跑出來 */
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.5);
+    z-index:180;
+    display:none;  /* 把對話視窗藏起來*/
+}
+
+.messages{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    height:250px;
+    background:#eee;
+    
+}
+
+.chatroom-input-group{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+}
+
+.messages>li{
+    padding:12px;
+}
+
+.messages>li>span{
+    padding: 5px 10px;
+    background: white;
+}
+
+.messages>li.client>span{  /*li.client是進階選擇器 */
+    float:right;
+    background:orange;
+    color:white;
+}
+
+.messages>li:after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.chatroom-input-group>input{
+    width:100%;
+    height:30px;
+    display:block;
+    border-radius: 3px;
+    border-style:solid;
+    border-width:1px;
+}
